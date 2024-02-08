@@ -28,8 +28,14 @@
                         <td>{{ $team->fed_number }}</td>
                         <td>{{ $team->name }}</td>
                         <td>{{ $team->city }}</td>
-                        <td></td>
-                        <td></td>
+                        <td><a href="{{ url('teams/' . $team->id . '/edit')}}">Editar</a></td>
+                        <td>
+                            <form action="{{url('teams/' .$team->id)}}" method="POST">
+                                @method("DELETE")
+                                @csrf
+                                <button type="submit">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
