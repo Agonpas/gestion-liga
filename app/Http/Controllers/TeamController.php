@@ -12,7 +12,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return view('teams.index');
+        $teams = Team::all();
+        return view('teams.index', ['teams' => $teams ]);
     }
 
     /**
@@ -28,7 +29,17 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fed_number' => 'required|unique:teams|max:10',
+            'name' => 'required|max:255',
+            'city' => 'required|max:50'
+        ]);
+        $team = new Team();
+        $team->fed_number = $request->input('fed_number');
+        $team->name = $request->input('name');
+        $team->city= $request->input('city');
+        $team->save();
+        return view('teams.message', ['msg' => "Registro guardado"]);
     }
 
     /**
