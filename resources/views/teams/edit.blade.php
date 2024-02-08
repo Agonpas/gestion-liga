@@ -1,12 +1,12 @@
 @extends('layout/template')
 
-@section('title', 'Crear Equipos')
+@section('title', 'Editar Equipos')
 
 @section('content')
 
 <main>
     <section>
-        <h1> Bienvenidos a la creación de equipos</h1>
+        <h1> Bienvenidos a la edición de equipos</h1>
         
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             @if($errors->any())
@@ -25,27 +25,28 @@
             </div>
             @endif
             
-            <form action="{{url ('teams')}}" method="post" >
+            <form action="{{url ('teams/' . $team->id)}}" method="post" >
+                @method("PUT")
                 @csrf
                 <div class="mb-4 row">
                     <label for="fed_number" class="block text-gray-700 text-sm font-bold mb-2">
                         Número de la federación
                     </label>
                     <div class="col-sm-5">
-                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fed_number" name="fed_number" value="{{old ('fed_number')}}" placeholder="Pon aquí el número de la federación del equipo" required>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fed_number" name="fed_number" value="{{$team->fed_number}}" placeholder="Pon aquí el número de la federación del equipo" required>
                     </div>
                 </div>
                 
                 <div class="mb-4 row">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre del equipo</label>
                     <div class="col-sm-5">
-                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teamname" name="name" value="{{old ('name')}}" placeholder="Pon aquí el nombre del equipo" required>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teamname" name="name" value="{{$team->name}}" placeholder="Pon aquí el nombre del equipo" required>
                     </div>
                 </div>
                 <div class="mb-4 row">
                     <label for="city" class="block text-gray-700 text-sm font-bold mb-2">Población del equipo</label>
                     <div class="col-sm-5">
-                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teamcity" name="city" value="{{old ('city')}}" placeholder="Pon aquí el nombre de la población" required>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teamcity" name="city" value="{{$team->city}}" placeholder="Pon aquí el nombre de la población" required>
                     </div>
                 </div>
 

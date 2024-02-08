@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
+            $table->string('fed_number', 10)->unique;
+            $table->string('name', 255);
             $table->string('city', 50);
             $table->timestamps();
         });

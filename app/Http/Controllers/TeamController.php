@@ -12,7 +12,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return view('teams.index');
+        $teams = Team::all();
+        return view('teams.index', ['teams' => $teams]);
     }
 
     /**
@@ -28,7 +29,17 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fed_number' => 'required|unique:teams|max:10',
+            'name' => 'required|max:255',
+            'city' => 'required|max:50'
+        ]);
+        $team = new Team();
+        $team->fed_number = $request->input('fed_number');
+        $team->name = $request->input('name');
+        $team->city= $request->input('city');
+        $team->save();
+        return view('teams.message', ['msg' => "Registro guardado"]);
     }
 
     /**
@@ -42,24 +53,37 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Team $team)
+    public function edit($id)
     {
-        //
+        $team = Team::find($id);
+        return view('teams.edit', ['team' => $team]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Team $team)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'fed_number' => 'required|max:10|unique:teams,fed_number,' . $id,
+            'name' => 'required|max:255',
+            'city' => 'required|max:50'
+        ]);
+        $team = Team::find($id);
+        $team->fed_number = $request->input('fed_number');
+        $team->name = $request->input('name');
+        $team->city= $request->input('city');
+        $team->save();
+        return view('teams.message', ['msg' => "Registro actualizado"]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team)
+    public function destroy($id)
     {
-        //
+        $team = Team::find($id);
+        $team->delete();
+        return redirect("teams");
     }
 }
