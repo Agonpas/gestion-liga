@@ -1,0 +1,6 @@
+.background-container {
+    background-image: url('img/campo_de_futbol.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

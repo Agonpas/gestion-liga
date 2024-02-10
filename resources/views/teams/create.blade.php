@@ -4,7 +4,7 @@
 
 @section('content')
 
-<main>
+<main class="background-container">
     <section>
         <h1> Bienvenidos a la creación de equipos</h1>
         

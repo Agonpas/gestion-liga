@@ -5,9 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">-->
+    <link rel="stylesheet" href="css/app.css">
     <title>@yield('title')</title>
 </head>
+
 <body>
+    <header class="bg-green-400 text-center mx-20 my-3 px-2 py-2 space-y-2">
+        <div class="bg-white text-center mx-1 my-1 px-1 py-1 space-y-auto space-x-auto flex justify-between">
+            <div class="my-1 mx-1 px-3 py-3 bg-green-400">
+                <a href="{{url ('/')}}">
+                    <img class="w-28" src="img/icono.jpg" alt="Logotipoo gestión liga">
+                </a>
+            </div>
+            <div class="my-1 flex-grow mx-1 px-3 py-3 bg-green-400 flex justify-center items-center space-x-10">
+                <a href="{{url ('/')}}">
+                    <i class="fas fa-home mx-auto px-10 text-xl text-white">   Inicio </i>  
+                </a> 
+                <a href="{{url ('/teams')}}">
+                    <i class="fas fa-tshirt mx-auto px-10 text-xl text-white">   Equipos </i>  
+                </a> 
+                <a href="">
+                    <i class="fas fa-futbol mx-auto mx-auto px-10 text-xl text-white">   Partidos</i> 
+                </a> 
+            </div>
+            <div class="my-1 mx-1 px-3 py-3 bg-green-400 flex justify-center items-center space-x-10 ">
+                <a href="{{url ('/')}}">
+                    <i class="fas fa-user-circle mx-auto px-10 text-xl text-white">   Registro </i> 
+                    
+                </a> 
+            </div>
+        </div>
+      
+	</header>
+    
     @yield('content')
 </body>
 </html>
