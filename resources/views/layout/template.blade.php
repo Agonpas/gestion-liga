@@ -20,18 +20,18 @@
             </div>
             <div class="my-1 flex-grow mx-1 px-3 py-3 bg-green-500 flex justify-center items-center space-x-10">
                 <a href="{{url ('/')}}">
-                    <i class="fas fa-home mx-auto px-10 text-xl text-white">   Inicio </i>  
+                    <i class="fas fa-home mx-auto px-10 text-xl text-white"> <p class="font-sans">Inicio</p></i>  
                 </a> 
                 <a href="{{url ('/teams')}}">
-                    <i class="fas fa-tshirt mx-auto px-10 text-xl text-white">   Equipos </i>  
+                    <i class="fas fa-tshirt mx-auto px-10 text-xl text-white"> <p class="font-sans">Equipos</p></i>  
                 </a> 
                 <a href="">
-                    <i class="fas fa-futbol mx-auto mx-auto px-10 text-xl text-white">   Partidos</i> 
+                    <i class="fas fa-futbol mx-auto mx-auto px-10 text-xl text-white"><p class="font-sans">Partidos</p></i> 
                 </a> 
             </div>
             <div class="my-1 mx-1 px-3 py-3 bg-green-500 flex justify-center items-center space-x-10 ">
                 <a href="{{url ('/')}}">
-                    <i class="fas fa-user-circle mx-auto px-10 text-xl text-white">   Registro </i> 
+                    <i class="fas fa-user-circle mx-auto px-10 text-xl text-white"><p class="font-sans">Registro</p></i> 
                 </a> 
             </div>
         </div>
