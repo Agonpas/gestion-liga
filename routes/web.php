@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\PlayerController;
+use App\Models\Game;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +40,7 @@ Route::put('teams/{team}', [TeamController::class, 'update']);
 // ruta para eliminar un equipo existente
 Route::delete('teams/{team}', [TeamController::class, 'destroy']);
 
-Route::get('players', [PlayerController::class, 'index']);
+// ruta para listar los partidos
+Route::get('games', [GameController::class, 'index']);
+// ruta para crear un nuevo equipo
+Route::get('games/create', [GameController::class, 'create']);

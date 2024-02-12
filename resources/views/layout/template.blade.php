@@ -25,7 +25,7 @@
                 <a href="{{url ('/teams')}}">
                     <i class="fas fa-tshirt mx-auto px-10 text-xl text-white"> <p class="font-sans">Equipos</p></i>  
                 </a> 
-                <a href="">
+                <a href="{{url ('/games')}}">
                     <i class="fas fa-futbol mx-auto mx-auto px-10 text-xl text-white"><p class="font-sans">Partidos</p></i> 
                 </a> 
             </div>
