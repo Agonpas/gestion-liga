@@ -44,3 +44,4 @@ Route::delete('teams/{team}', [TeamController::class, 'destroy']);
 Route::get('games', [GameController::class, 'index']);
 // ruta para crear un nuevo equipo
 Route::get('games/create', [GameController::class, 'create']);
+Route::post('games', [GameController::class, 'store']);

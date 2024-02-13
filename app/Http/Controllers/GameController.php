@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Team;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -21,7 +23,8 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('games.create');
+        $teams = Team::all();
+        return view('games.create', compact('teams'));
     }
 
     /**
@@ -29,7 +32,25 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'home_team_id' => [
+                'required',
+                Rule::unique('games', 'home_team_id')->where(function ($query) use ($request) {
+                    return $query->where('away_team_id', $request->away_team_id);
+                }),
+            ],
+            'away_team_id' => 'required|different:home_team_id',
+            'home_goals' => 'required|integer|min:0',
+            'away_goals' => 'required|integer|min:0',
+        ]);
+        $game = new Game();
+        $game->home_team_id = $request->input('home_team_id');
+        $game->away_team_id = $request->input('away_team_id');
+        $game->home_goals = $request->input('home_goals');
+        $game->away_goals = $request->input('away_goals');
+        $game->save();
+        return view('games.message', ['msg' => "Registro de partido guardado"]);
+
     }
 
     /**

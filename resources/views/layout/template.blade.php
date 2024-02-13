@@ -15,7 +15,7 @@
         <div class="bg-white text-center mx-1 my-1 px-1 py-1 space-y-auto space-x-auto flex justify-between">
             <div class="my-1 mx-1 px-3 py-3 bg-green-500">
                 <a href="{{url ('/')}}">
-                    <img class="w-28" src="img/icono.jpg" alt="Logotipoo gestión liga">
+                    <img class="w-28" src="{{ asset('img/icono.jpg') }}" alt="Logotipoo gestión liga">
                 </a>
             </div>
             <div class="my-1 flex-grow mx-1 px-3 py-3 bg-green-500 flex justify-center items-center space-x-10">

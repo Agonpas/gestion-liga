@@ -26,8 +26,8 @@
                                 @foreach($games as $game)
                                 <tr>
                                     <td class="px-4 py-2">{{ $game->id }}</td>
-                                    <td class="px-4 py-2">{{ $game->home_team_id }}</td>
-                                    <td class="px-4 py-2">{{ $game->away_team_id }}</td>
+                                    <td class="px-4 py-2">{{ $game->localTeam->name }}</td>
+                                    <td class="px-4 py-2">{{ $game->awayTeam->name }}</td>
                                     <td class="px-4 py-2">{{ $game->home_goals }}</td>
                                     <td class="px-4 py-2">{{ $game->away_goals }}</td>
                                     <td class="" >
