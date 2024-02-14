@@ -1,6 +1,6 @@
 @extends('layout/template')
 
-@section('title', 'Editar Equipos')
+@section('title', 'Registrar Partidos')
 
 @section('content')
 
@@ -8,7 +8,7 @@
     <div class="bg-green-500 text-center px-2 py-2 space-y-2">
         <div class="bg-white text-center mx-1 my-1 px-1 py-1 space-y-auto space-x-auto justify-between">
             <div class="my-1 mx-1 px-3 py-2 bg-green-500">
-                <h1 class="text-center text-white px-2 mt-auto text-2xl font-bold">MODIFICACIÓN DE EQUIPOS</h1>
+                <h1 class="text-center text-white px-2 mt-auto text-2xl font-bold">REGISTRAR EQUIPOS</h1>
             </div>
             <div class="my-1 mx-1 px-3 py-2 bg-green-500">
                 <div class="bg-green-500 rounded px-8 pt-6 pb-8 mb-4">
@@ -30,31 +30,44 @@
             
                 @endif
                 
-                <form action="{{url ('teams/' . $team->id)}}" method="post">
-                    @method("PUT")
+                <form action="{{url ('games')}}" method="post" >
                     @csrf
                     <div class="mb-4 row">
-                        <label for="fed_number" class="block text-white text-lg font-bold mb-2"> Número de la federación </label>
+                        <label for="home_team_id" class="block text-white text-lg font-bold mb-2"> Equipo Local </label>
                         <div class="col-sm-5">
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fed_number" name="fed_number" value="{{$team->fed_number}}" placeholder="Pon aquí el número de la federación del equipo" required>
+                            <select name="home_team_id" id="home_team_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                @foreach($teams as $team)
+                                    <option value="{{ $team->id }}" {{ old('home_team_id') == $team->id ? 'selected' : '' }}>{{ $team->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>                   
                     <div class="mb-4 row">
-                        <label for="name" class="block text-white text-lg font-bold mb-2">Nombre del equipo</label>
+                        <label for="away_team_id" class="block text-white text-lg font-bold mb-2"> Equipo visitante </label>
                         <div class="col-sm-5">
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teamname" name="name" value="{{$team->name}}" placeholder="Pon aquí el nombre del equipo" required>
+                            <select name="away_team_id" id="away_team_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                @foreach($teams as $team)
+                                    <option value="{{ $team->id }}" {{ old('away_team_id') == $team->id ? 'selected' : '' }}>{{ $team->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="mb-4 row">
-                        <label for="city" class="block text-white text-lg font-bold mb-2">Población del equipo</label>
+                        <label for="home_goals" class="block text-white text-lg font-bold mb-2">Goles equipo local</label>
                         <div class="col-sm-5">
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teamcity" name="city" value="{{$team->city}}" placeholder="Pon aquí el nombre de la población" required>
+                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="home_goals" name="home_goals" value="{{old ('home_goals')}}" placeholder="introduce goles equipo local" required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="away_goals" class="block text-white text-lg font-bold mb-2">Goles equipo visitante</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="away_goals" name="away_goals" value="{{old ('away_goals')}}" placeholder="introduce goles equipo visitante" required>
                         </div>
                     </div>
                     <div class="">
                         <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 my-auto rounded">Guradar</button>
                         <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 my-auto rounded">
-                            <a href="{{url ('teams')}}"> Volver</a>
+                            <a href="{{url ('games')}}"> Volver</a>
                         </button>
                     </div>
 
@@ -67,4 +80,5 @@
     </div>
    
 </main>
+    
 @endsection
