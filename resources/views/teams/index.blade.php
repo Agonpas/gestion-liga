@@ -31,7 +31,7 @@
                                     <td class="px-4 py-2">{{ $team->name }}</td>
                                     <td class="px-4 py-2">{{ $team->city }}</td>
                                     <td class="" >
-                                        <button class="bg-green-600 hover:bg-yellow-500 py-2 px-4 my-3 rounded">
+                                        <button class="bg-green-600 hover:bg-yellow-500 py-2 px-6 my-3 rounded">
                                             <a href="{{url ('teams/'. $team->id. '/edit')}}"> Editar</a>
                                         </button></td>
                                     <td class="">

@@ -14,7 +14,7 @@
                 <div class="mx-auto max-w-4xl my-4">
                     <h1 class="text-white"> {{ $msg }}</h1>
                     <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 my-3 rounded">
-                        <a href="{{url ('teams')}}"> Volver</a>
+                        <a href="{{url ('games')}}"> Volver</a>
                     </button>
                 </div>
                

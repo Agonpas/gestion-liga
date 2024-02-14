@@ -13,43 +13,43 @@
             <div class="my-1 mx-1 px-3 py-2 bg-green-500">
                 
                 <div class="mx-auto max-w-4xl my-4">
-                    <table class="text-white text-lg">
-                        <thead>
+                    <table class="text-white text-lg mx-auto text-center">
+                        
+                        <tbody>
+                            @foreach($games as $game)
                             <tr>
-                                <th class="px-4 py-2">Id</th>
-                                <th class="px-4 py-2">Equipo local</th>
-                                <th class="px-4 py-2">Equipo visitante</th>
-                                <th class="px-4 py-2">Goles equipo local</th>
-                                <th class="px-4 py-2">Goles equipo visitante</th>
+                                <td class="px-4 py-2 text-center text-xl font-bold" colspan="5">Partido id  {{ $game->id }}</td>
                             </tr>
-                            <tbody>
-                                @foreach($games as $game)
-                                <tr>
-                                    <td class="px-4 py-2">{{ $game->id }}</td>
-                                    <td class="px-4 py-2">{{ $game->localTeam->name }}</td>
-                                    <td class="px-4 py-2">{{ $game->awayTeam->name }}</td>
-                                    <td class="px-4 py-2">{{ $game->home_goals }}</td>
-                                    <td class="px-4 py-2">{{ $game->away_goals }}</td>
-                                    <td class="" >
-                                        <button class="bg-green-600 hover:bg-yellow-500 py-2 px-4 my-3 rounded">
-                                            <a href="{{url ('games/'. $game->id. '/edit')}}"> Editar</a>
-                                        </button></td>
-                                    <td class="">
-                                        <form action="{{url('games/' .$game->id)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres borrar este partido?');">
-                                            @method("DELETE")
-                                            @csrf
-                                            <button class="bg-green-600 hover:bg-red-700 py-2 px-4 my-3 rounded" type="submit">Eliminar</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </thead>
+                            <tr>
+                                <td class="px-4 py-2">{{ $game->localTeam->name }}</td>
+                                <td class="px-4 py-2">{{ $game->awayTeam->name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2">{{ $game->home_goals }}</td>
+                                <td class="px-4 py-2">{{ $game->away_goals }}</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2">
+                                    <button class="bg-green-600 hover:bg-yellow-500 py-2 px-6 my-3 rounded">
+                                        <a href="{{url ('games/'. $game->id. '/edit')}}"> Editar</a>
+                                    </button>
+                                </td>
+                                <td class="px-4 py-2">
+                                    <form action="{{url('games/' .$game->id)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres borrar este partido?');">
+                                        @method("DELETE")
+                                        @csrf
+                                        <button class="bg-green-600 hover:bg-red-700 py-2 px-4 my-3 rounded" type="submit">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
                 <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 my-3 rounded">
                     <a href="{{url ('games/create')}}"> Registrar partido</a>
                 </button>
+                
             </div>
         </div>
     </div>
