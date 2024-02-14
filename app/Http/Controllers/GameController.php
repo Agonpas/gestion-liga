@@ -77,10 +77,7 @@ class GameController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'home_team_id' => [
-                'required',
-                Rule::unique('games', 'home_team_id')->ignore($id),
-            ],
+            'home_team_id' => 'required|different:away_team_id',
             'away_team_id' => 'required|different:home_team_id',
             'home_goals' => 'required|integer|min:0',
             'away_goals' => 'required|integer|min:0',
