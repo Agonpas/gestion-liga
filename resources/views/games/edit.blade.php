@@ -35,33 +35,33 @@
                 
                     <div class="mb-4 row">
                         <label for="home_team_id" class="block text-white text-lg font-bold mb-2"> Equipo Local </label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-5 w-96 mx-auto">
                             <select name="home_team_id" id="home_team_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                 @foreach($teams as $team)
                                     <option value="{{ $team->id }}" {{ $game->home_team_id == $team->id ? 'selected' : '' }}>{{ $team->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                    </div>                   
+                    </div> 
+                    <div class="mb-4 row">
+                        <label for="home_goals" class="block text-white text-lg font-bold mb-2">Goles equipo local</label>
+                        <div class="col-sm-5 w-24 mx-auto">
+                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="home_goals" name="home_goals" value="{{ $game->home_goals }}" placeholder="introduce goles equipo local" required>
+                        </div>
+                    </div>                  
                     <div class="mb-4 row">
                         <label for="away_team_id" class="block text-white text-lg font-bold mb-2"> Equipo visitante </label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-5 w-96 mx-auto">
                             <select name="away_team_id" id="away_team_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                 @foreach($teams as $team)
                                     <option value="{{ $team->id }}" {{ $game->away_team_id == $team->id ? 'selected' : '' }}>{{ $team->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                    </div>
-                    <div class="mb-4 row">
-                        <label for="home_goals" class="block text-white text-lg font-bold mb-2">Goles equipo local</label>
-                        <div class="col-sm-5">
-                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="home_goals" name="home_goals" value="{{ $game->home_goals }}" placeholder="introduce goles equipo local" required>
-                        </div>
-                    </div>
+                    </div>                  
                     <div class="mb-4 row">
                         <label for="away_goals" class="block text-white text-lg font-bold mb-2">Goles equipo visitante</label>
-                        <div class="col-sm-5">
+                        <div class="col-sm-5 w-24 mx-auto">
                             <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="away_goals" name="away_goals" value="{{ $game->away_goals }}" placeholder="introduce goles equipo visitante" required>
                         </div>
                     </div>

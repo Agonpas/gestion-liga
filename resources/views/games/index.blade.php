@@ -17,18 +17,18 @@
                         
                         <tbody>
                             @foreach($games as $game)
-                            <tr>
+                            <tr class="border-b {{ $loop->last ? '' : 'border-white' }}">
                                 <td class="px-4 py-2 text-center text-xl font-bold" colspan="5">Partido id  {{ $game->id }}</td>
                             </tr>
-                            <tr>
+                            <tr class="border-b {{ $loop->last ? '' : 'border-white' }}">
                                 <td class="px-4 py-2">{{ $game->localTeam->name }}</td>
                                 <td class="px-4 py-2">{{ $game->awayTeam->name }}</td>
                             </tr>
-                            <tr>
+                            <tr class="border-b {{ $loop->last ? '' : 'border-white' }}">
                                 <td class="px-4 py-2">{{ $game->home_goals }}</td>
                                 <td class="px-4 py-2">{{ $game->away_goals }}</td>
                             </tr>
-                            <tr>
+                            <tr class="border-b {{ $loop->last ? '' : 'border-white' }}">
                                 <td class="px-4 py-2">
                                     <button class="bg-green-600 hover:bg-yellow-500 py-2 px-6 my-3 rounded">
                                         <a href="{{url ('games/'. $game->id. '/edit')}}"> Editar</a>
