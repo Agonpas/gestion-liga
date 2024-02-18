@@ -83,7 +83,12 @@ class TeamController extends Controller
     public function destroy($id)
     {
         $team = Team::find($id);
-        $team->delete();
-        return redirect("teams");
+        if ($team->localGames->isEmpty() && $team->awayGames->isEmpty()) {
+            $team->delete();
+            return view('teams.message', ['msg' => "El equipo se ha eliminado"]);
+        } else {
+            return view('teams.message', ['msg' => "Para eliminar este equipo primero elimina los partidos de los que forma parte"]);
+        }
+        
     }
 }

@@ -26,13 +26,32 @@
                     <i class="fas fa-tshirt mx-auto px-10 text-xl text-white"> <p class="font-sans">Equipos</p></i>  
                 </a> 
                 <a href="{{url ('/games')}}">
-                    <i class="fas fa-futbol mx-auto mx-auto px-10 text-xl text-white"><p class="font-sans">Partidos</p></i> 
+                    <i class="fas fa-futbol mx-auto px-10 text-xl text-white"><p class="font-sans">Partidos</p></i> 
                 </a> 
             </div>
             <div class="my-1 mx-1 px-3 py-3 bg-green-500 flex justify-center items-center space-x-10 ">
-                <a href="{{url ('/')}}">
-                    <i class="fas fa-user-circle mx-auto px-10 text-xl text-white"><p class="font-sans">Registro</p></i> 
-                </a> 
+                @if (Route::has('login'))
+                    <div>
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="mx-auto px-10 text-xl text-white font-sans">
+                                <i class="fas fa-pen mx-auto px-10 text-xl text-white"><p class="font-sans">Dashboard</p></i>
+                            </a>
+                            @else
+                            
+                            <a href="{{ route('login') }}">
+                                <i class="fas fa-user-circle mx-auto px-10 text-xl text-white"><p class="font-sans">Log in</p></i> 
+                            </a> 
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">
+                                    <i class="fas fa-clipboard mx-auto px-10 text-xl text-white"><p class="font-sans">Registro</p></i> 
+                                </a> 
+                            @endif
+                            
+                        @endauth
+                    </div>
+                @endif
+                
+                
             </div>
         </div>
 	</header>
