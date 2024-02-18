@@ -26,7 +26,7 @@
                     <i class="fas fa-tshirt mx-auto px-10 text-xl text-white"> <p class="font-sans">Equipos</p></i>  
                 </a> 
                 <a href="{{url ('/games')}}">
-                    <i class="fas fa-futbol mx-auto mx-auto px-10 text-xl text-white"><p class="font-sans">Partidos</p></i> 
+                    <i class="fas fa-futbol mx-auto px-10 text-xl text-white"><p class="font-sans">Partidos</p></i> 
                 </a> 
             </div>
             <div class="my-1 mx-1 px-3 py-3 bg-green-500 flex justify-center items-center space-x-10 ">
@@ -45,8 +45,8 @@
                                 <a href="{{ route('register') }}">
                                     <i class="fas fa-clipboard mx-auto px-10 text-xl text-white"><p class="font-sans">Registro</p></i> 
                                 </a> 
-                            
                             @endif
+                            
                         @endauth
                     </div>
                 @endif

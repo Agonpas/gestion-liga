@@ -10,7 +10,7 @@
                 <h1 class="text-center text-white px-2 mt-auto text-2xl font-bold">RECUPERAR CONTRASEÑA</h1>
             </div>
             <div class="mb-4 text-sm text-white">
-                {{ __('¿Has olvidado tu contraseña? No te preocuper. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+                {{ __('¿Has olvidado tu contraseña? No te preocuper. Simplemente indícanos tu dirección de correo electrónico y te enviaremos un enlace para restablecer la contraseña por correo electrónico, lo que te permitirá elegir una nueva..') }}
             </div>
 
             <!-- Session Status -->
@@ -28,7 +28,7 @@
 
                 <div class="flex items-center justify-end mt-4">
                     <x-primary-button>
-                        {{ __('Email Password Reset Link') }}
+                        {{ __('Restablecer contraseña') }}
                     </x-primary-button>
                 </div>
             </form>
